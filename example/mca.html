@@ -10,16 +10,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Computer Graphics Complete Tutorial">
     <meta name="author" content="Sulav Parajuli">
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="shortcut icon" href="../favicon.ico">
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
 
     <!-- FontAwesome JS-->
-    <script defer src="assets/fontawesome/js/all.min.js"></script>
+    <script defer src="../assets/fontawesome/js/all.min.js"></script>
 
     <!-- Theme CSS -->
-    <link id="theme-style" rel="stylesheet" href="assets/css/theme.css">
+    <link id="theme-style" rel="stylesheet" href="../assets/css/theme.css">
 
     <style>
         body {
@@ -89,7 +89,7 @@
         }
     </style>
 
-    <script src="graphics.js"></script>
+    <script src="../graphics.js"></script>
 
 </head>
 
@@ -99,7 +99,7 @@
         <div class="branding docs-branding">
             <div class="container-fluid position-relative py-2">
                 <div class="docs-logo-wrapper">
-                    <div class="site-logo"><a class="navbar-brand" href="index.html"><span
+                    <div class="site-logo"><a class="navbar-brand" href="../index.html"><span
                                 class="logo-text">Graphics.<span class="text-alt">js</span></span></a></div>
                 </div>
                 <div class="docs-top-utilities d-flex justify-content-end align-items-center">
@@ -163,70 +163,59 @@
 
             editor.getSession().setMode("ace/mode/typescript");
             editor.setValue(`//bsa algorithm
-
 async function main() {
-
+    // to implement circle drawing algorithm
     initgraph();
 
-    // to implement DAA
-    var steps;
-    var xincr, yincr, x, y, dx, dy;
+    var xc, yc, R;
+    var xc = input("Enter the center x-coordinate of circle");
+    var yc = input("Enter the center y-coordinate of circle");
+    var R = input("Enter the Radius of circle");
 
+    draw_circle(xc, yc, R)
+    closegraph();
+}
 
-    // required points
-    var x1 = input("Enter the value of x1");
-    var y1 = input("Enter the value of x2");
+async function draw_circle(xc, yc, rad) {
+    var x = 0
+    var y = rad
+    var p = 1 - rad
 
-    var x2 = input("Enter the value of y1");
-    var y2 = input("Enter the value of y2");
+    symmetry(x, y, xc, yc)
 
+    for (x = 0; y > x; x++) {
+        if (p < 0) {
+            p += 2 * x + 3
+        }
+        else {
+            p += 2 * (x - y) + 5;
+            y--;
+        }
 
-    dx = x2 - x1
-    dy = y2 - y1
-
-
-
-
-
-
-
-    if (abs(dx) > abs(dy)) {
-        steps = abs(dx)
-    }
-    else {
-        steps = abs(dy)
-    }
-
-    xincr = dx / steps
-    yincr = dy / steps
-
-    x = x1
-    y = y1
-
-    outtextxy(200, 20, "DDA")
-    outtextxy(x + 5, y - 5, "(x1,y1)")
-
-    for (var k = 1; k <= steps; k++) {
-        await delay(30)
-        console.log(x)
-        console.log(y)
-        y += yincr;
-        x += xincr;
-        putpixel(round(x), round(y), "#ffffff")
-    }
-
-    outtextxy(x + 5, y - 5, "(x2,y2)")
-    closegraph()
-
-
-    function round(elem) {
-        return elem + 0.5;
+        symmetry(x, y, xc, yc)
+        await delay(50)
     }
 }
+
+async function symmetry(x, y, xc, yc) {
+    putpixel(xc + x, yc - y, "#ffffff")
+    delay(50)
+    putpixel(xc + y, yc - x, "#ffffff")
+    delay(50)
+    putpixel(xc + y, yc + x, "#ffffff")
+    delay(50)
+    putpixel(xc + x, yc + y, "#ffffff")
+    delay(50)
+    putpixel(xc - x, yc + y, "#ffffff")
+    delay(50)
+    putpixel(xc - y, yc + x, "#ffffff")
+    delay(50)
+    putpixel(xc - y, yc - x, "#ffffff")
+    delay(50)
+    putpixel(xc - x, yc - y, "#ffffff")
+    delay(50)
+}
 main()
-            
-
-
     
     `, 1);
 

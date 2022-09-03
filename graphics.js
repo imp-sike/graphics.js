@@ -1,5 +1,6 @@
 var ctx;
-
+var currentPrintPositionX = 15;
+var currentPrintPositionY = 15;
 // graphics functions
 function initgraph() {
     var canvas = document.getElementById('sampleGraphics');
@@ -24,7 +25,8 @@ function circle(x, y, radius) {
 }
 
 function cleardevice() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    ctx.canvas.width = ctx.canvas.width;
 }
 
 function ellipse(x, y, stangle, endangle, xradius, yradius) {
@@ -35,6 +37,8 @@ function ellipse(x, y, stangle, endangle, xradius, yradius) {
 }
 
 function line(startX, startY, endX, endY) {
+    ctx.beginPath();
+
     ctx.moveTo(startX, startY)
     ctx.lineTo(endX, endY)
     ctx.strokeStyle = "#ffffff";
@@ -42,11 +46,15 @@ function line(startX, startY, endX, endY) {
 }
 
 function putpixel(pos1, pos2, color) {
+    ctx.beginPath();
+
     ctx.fillStyle = color;
     ctx.fillRect(pos2, pos1, 1, 1);
 }
 
 function outtextxy(x, y, text) {
+    ctx.beginPath();
+
     ctx.strokeStyle = "#ffffff";
     ctx.strokeText(text, x, y);
 }
@@ -72,4 +80,10 @@ function delay(ms) {
 // i/o
 function input(s) {
     return parseInt(prompt(s));
+}
+
+function print(s) {
+    currentPrintPositionY += 20;
+
+    return outtextxy(currentPrintPositionX, currentPrintPositionY, s)
 }

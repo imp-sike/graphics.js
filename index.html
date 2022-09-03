@@ -35,8 +35,10 @@
                 <div class="docs-top-utilities d-flex justify-content-end align-items-center">
 
                     <ul class="social-list list-inline mx-md-3 mx-lg-5 mb-0 d-none d-lg-flex">
-                        <li class="list-inline-item"><a href="http://github.com/imp-sike"><i class="fab fa-github fa-fw"></i></a></li>
-                        <li class="list-inline-item"><a href="http://facebook.com/thesulav"><i class="fab fa-facebook fa-fw"></i></a></li>
+                        <li class="list-inline-item"><a href="http://github.com/imp-sike"><i
+                                    class="fab fa-github fa-fw"></i></a></li>
+                        <li class="list-inline-item"><a href="http://facebook.com/thesulav"><i
+                                    class="fab fa-facebook fa-fw"></i></a></li>
                     </ul>
                     <!--//social-list-->
                     <a href="showcase" class="btn btn-primary d-none d-lg-flex">Open Playground</a>
@@ -61,14 +63,15 @@
                 graphics.h that is totally recreated using HTML5 canvas and work with bare minimum knowledge of js.
                 <br><br>
                 <a href="showcase" class="btn btn-danger">Open Playground</a>
-            
+
             </div>
-            
+
         </div>
     </div>
     <div class="page-content">
         <div class="container">
             <div class="docs-overview py-5">
+                <h1>Scan Conversion Algorithms</h1>
                 <div class="row justify-content-center">
                     <div class="col-12 col-lg-4 py-3">
                         <div class="card shadow-sm">
@@ -106,7 +109,7 @@
                                     incremental method of scan conversion of line. In this method calculation is
                                     performed at each step but by using results of previous steps.
                                 </div>
-                                <a class="card-link-mask" href="dda"></a>
+                                <a class="card-link-mask" href="example/dda"></a>
                             </div>
                             <!--//card-body-->
                         </div>
@@ -128,7 +131,7 @@
                                     an n-dimensional raster that should be selected in order to form a close
                                     approximation to a straight line between two points.
                                 </div>
-                                <a class="card-link-mask" href="bsa"></a>
+                                <a class="card-link-mask" href="example/bsa"></a>
                             </div>
                             <!--//card-body-->
                         </div>
@@ -146,9 +149,12 @@
                                     <span class="card-title-text">Mid Point Circle Algorithm</span>
                                 </h5>
                                 <div class="card-text">
-                                    Mid Point Circle Algorithm is a circle drawing algorithm.
+                                    The mid-point circle drawing algorithm is an algorithm used to determine the points
+                                    needed for rasterizing a circle. We use the mid-point algorithm to calculate all the
+                                    perimeter points of the circle in the first octant and then print them along with
+                                    their mirror points in the other octants.
                                 </div>
-                                <a class="card-link-mask" href="mca"></a>
+                                <a class="card-link-mask" href="example/mca"></a>
                             </div>
                             <!--//card-body-->
                         </div>
@@ -164,12 +170,14 @@
                                         <i class="fas fa-map-signs"></i>
                                     </span>
                                     <!--//card-icon-holder-->
-                                    <span class="card-title-text">Mid Point Oval Algorithm</span>
+                                    <span class="card-title-text">Mid Point Ellipse Algorithm</span>
                                 </h5>
                                 <div class="card-text">
-                                    Mid Point Oval Algorithm is a oval drawing algorithm.
-                                </div>
-                                <a class="card-link-mask" href="moa"></a>
+                                    Mid-point Ellipse algorithm is used to draw an ellipse in computer graphics.
+                                    Midpoint ellipse algorithm plots(finds) points of an ellipse on the first quadrant
+                                    by dividing the quadrant into two regions. Each point(x, y) is then projected into
+                                    other three quadrants (-x, y), (x, -y), (-x, -y) i.e. it uses 4-way symmetry </div>
+                                <a class="card-link-mask" href="example/moa"></a>
                             </div>
                             <!--//card-body-->
                         </div>
@@ -188,9 +196,13 @@
                                     <span class="card-title-text">Boundary Filling Algorithm</span>
                                 </h5>
                                 <div class="card-text">
-                                    lipsum
+                                    Boundary Fill Algorithm starts at a pixel inside the polygon to be filled and paints
+                                    the interior proceeding outwards towards the boundary. This algorithm works only if
+                                    the color with which the region has to be filled and the color of the boundary of
+                                    the region are different. If the boundary is of one single color, this approach
+                                    proceeds outwards pixel by pixel until it hits the boundary of the region.
                                 </div>
-                                <a class="card-link-mask" href="bfa"></a>
+                                <a class="card-link-mask" href="example/bfa"></a>
                             </div>
                             <!--//card-body-->
                         </div>
@@ -200,11 +212,53 @@
                 </div>
                 <!--//row-->
             </div>
-            <!--//container-->
+
+
+            <div class="docs-overview py-5">
+                <h1>Some Fancy Examples!</h1>
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-4 py-3">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title mb-3">
+                                    <span class="theme-icon-holder card-icon-holder me-2">
+                                        <i class="fas fa-map-signs"></i>
+                                    </span>
+                                    <span class="card-title-text">Moving Car Animation</span>
+                                </h5>
+                                <div class="card-text">
+                                    Using graphics.js and loops to create a woundeful animation of a moving car. 
+                                </div>
+                                <a class="card-link-mask" href="example/caranim.html"></a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 col-lg-4 py-3">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title mb-3">
+                                    <span class="theme-icon-holder card-icon-holder me-2">
+                                        <i class="fas fa-map-signs"></i>
+                                    </span>
+                                    <span class="card-title-text">Bouncing Ball Animation</span>
+                                </h5>
+                                <div class="card-text">
+                                    Using graphics.js and loops to create a woundeful animation of a bouncing ball. 
+                                </div>
+                                <a class="card-link-mask" href="example/bouncingball.html"></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+            </div>
+
+
+          
         </div>
-        <!--//container-->
     </div>
-    <!--//page-content-->
 
     <section class="cta-section text-center py-5 theme-bg-dark position-relative">
         <div class="theme-bg-shapes-right"></div>
@@ -212,8 +266,9 @@
         <div class="container">
             <h3 class="mb-2 text-white mb-3">Created by Sulav Parajuli!</h3>
             <div class="section-intro text-white mb-3 single-col-max mx-auto">Contact me from<a class="text-white"
-                    href="http://facebook.com/thesulav"> here</a>! I am ready for any time of counselling, Website Development, Mobile App Development, etc.</div>
-           
+                    href="http://facebook.com/thesulav"> here</a>! I am ready for any time of counselling, Website
+                Development, Mobile App Development, etc.</div>
+
         </div>
     </section>
     <!--//cta-section-->
@@ -223,15 +278,17 @@
         <div class="footer-bottom text-center py-5">
 
             <ul class="social-list list-unstyled pb-4 mb-0">
-                <li class="list-inline-item"><a href="http://github.com/imp-sike"><i class="fab fa-github fa-fw"></i></a></li>
-                <li class="list-inline-item"><a href="http://facebook.com/thesulav"><i class="fab fa-facebook fa-fw"></i></a></li>
+                <li class="list-inline-item"><a href="http://github.com/imp-sike"><i
+                            class="fab fa-github fa-fw"></i></a></li>
+                <li class="list-inline-item"><a href="http://facebook.com/thesulav"><i
+                            class="fab fa-facebook fa-fw"></i></a></li>
             </ul>
             <!--//social-list-->
 
             <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
-            <small class="copyright">Documentation Template Designed with <span class="sr-only">love</span><i class="fas fa-heart"
-                    style="color: #fb866a;"></i> by <a class="theme-link" href="http://themes.3rdwavemedia.com"
-                    target="_blank">Xiaoying Riley</a> for developers</small>
+            <small class="copyright">Documentation Template Designed with <span class="sr-only">love</span><i
+                    class="fas fa-heart" style="color: #fb866a;"></i> by <a class="theme-link"
+                    href="http://themes.3rdwavemedia.com" target="_blank">Xiaoying Riley</a> for developers</small>
 
 
         </div>

@@ -10,16 +10,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Computer Graphics Complete Tutorial">
     <meta name="author" content="Sulav Parajuli">
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="shortcut icon" href="../favicon.ico">
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
 
     <!-- FontAwesome JS-->
-    <script defer src="assets/fontawesome/js/all.min.js"></script>
+    <script defer src="../assets/fontawesome/js/all.min.js"></script>
 
     <!-- Theme CSS -->
-    <link id="theme-style" rel="stylesheet" href="assets/css/theme.css">
+    <link id="theme-style" rel="stylesheet" href="../assets/css/theme.css">
 
     <style>
         body {
@@ -89,7 +89,7 @@
         }
     </style>
 
-    <script src="graphics.js"></script>
+    <script src="../graphics.js"></script>
 
 </head>
 
@@ -99,7 +99,7 @@
         <div class="branding docs-branding">
             <div class="container-fluid position-relative py-2">
                 <div class="docs-logo-wrapper">
-                    <div class="site-logo"><a class="navbar-brand" href="index.html"><span
+                    <div class="site-logo"><a class="navbar-brand" href="../index.html"><span
                                 class="logo-text">Graphics.<span class="text-alt">js</span></span></a></div>
                 </div>
                 <div class="docs-top-utilities d-flex justify-content-end align-items-center">
@@ -164,58 +164,55 @@
             editor.getSession().setMode("ace/mode/typescript");
             editor.setValue(`//bsa algorithm
 async function main() {
-    // to implement circle drawing algorithm
+    var i, j = 0;
+ 
     initgraph();
+    
 
-    var xc, yc, R;
-    var xc = input("Enter the center x-coordinate of circle");
-    var yc = input("Enter the center y-coordinate of circle");
-    var R = input("Enter the Radius of circle");
-
-    draw_circle(xc, yc, R)
-    closegraph();
-}
-
-async function draw_circle(xc, yc, rad) {
-    var x = 0
-    var y = rad
-    var p = 1 - rad
-
-    symmetry(x, y, xc, yc)
-
-    for (x = 0; y > x; x++) {
-        if (p < 0) {
-            p += 2 * x + 3
-        }
-        else {
-            p += 2 * (x - y) + 5;
-            y--;
-        }
-
-        symmetry(x, y, xc, yc)
-        await delay(50)
+    for (i = 0; i <= 1000; i = i + 10) {
+        outtextxy(100,100,"Car is Running")
+     
+        line(0 + i, 300, 210 + i, 300);
+        line(50 + i, 300, 75 + i, 270);
+        line(75 + i, 270, 150 + i, 270);
+        line(150 + i, 270, 165 + i, 300);
+        line(0 + i, 300, 0 + i, 330);
+        line(210 + i, 300, 210 + i, 330);
+ 
+        // For left wheel of car
+        circle(65 + i, 330, 15);
+        circle(65 + i, 330, 2);
+ 
+        // For right wheel of car
+        circle(145 + i, 330, 15);
+        circle(145 + i, 330, 2);
+ 
+        // Line left of left wheel
+        line(0 + i, 330, 50 + i, 330);
+ 
+        // Line middle of both wheel
+        line(80 + i, 330, 130 + i, 330);
+ 
+        // Line right of right wheel
+        line(210 + i, 330, 160 + i, 330);
+ 
+        await delay(100);
+ 
+        // To erase previous drawn car
+        // use cleardevice() function
+        cleardevice();
     }
+ 
+ 
+    closegraph();
+
 }
 
-async function symmetry(x, y, xc, yc) {
-    putpixel(xc + x, yc - y, "#ffffff")
-    delay(50)
-    putpixel(xc + y, yc - x, "#ffffff")
-    delay(50)
-    putpixel(xc + y, yc + x, "#ffffff")
-    delay(50)
-    putpixel(xc + x, yc + y, "#ffffff")
-    delay(50)
-    putpixel(xc - x, yc + y, "#ffffff")
-    delay(50)
-    putpixel(xc - y, yc + x, "#ffffff")
-    delay(50)
-    putpixel(xc - y, yc - x, "#ffffff")
-    delay(50)
-    putpixel(xc - x, yc - y, "#ffffff")
-    delay(50)
-}
 main()
+
+
+
+
     
     `, 1);
 
