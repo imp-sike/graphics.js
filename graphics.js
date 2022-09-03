@@ -68,3 +68,8 @@ function delay(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+
+// i/o
+function input(s) {
+    return parseInt(prompt(s));
+}
