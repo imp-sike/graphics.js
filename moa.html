@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Computer Graphics complete Tutorial</title>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Computer Graphics Complete Tutorial">
+    <meta name="author" content="Sulav Parajuli">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome JS-->
+    <script defer src="assets/fontawesome/js/all.min.js"></script>
+
+    <!-- Theme CSS -->
+    <link id="theme-style" rel="stylesheet" href="assets/css/theme.css">
+
+    <style>
+        body {
+            font-family: Arial;
+            color: white;
+        }
+
+        .split {
+            height: 100%;
+            width: 50%;
+            position: fixed;
+            z-index: 1;
+            overflow-x: hidden;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            right: 0;
+        }
+
+        .kc_fab_main_btn {
+            position: fixed;
+            /* Fixed/sticky position */
+            bottom: 30px;
+            /* Place the button at the bottom of the page */
+            left: 45vw;
+            /* Place the button 30px from the right */
+            z-index: 99;
+            /* Make sure it does not overlap */
+            background-color: #F44336;
+            width: 60px;
+            height: 60px;
+            border-radius: 100%;
+            background: #F44336;
+            border: none;
+            outline: none;
+            color: #FFF;
+            font-size: 36px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+            transition: .3s;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        .kc_fab_main_btn:hover {
+            transform: scale(1.1);
+            background: green;
+
+            transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+        }
+
+        #editor {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+
+        canvas {
+            display: block;
+            background-color: black;
+        }
+    </style>
+
+    <script src="graphics.js"></script>
+
+</head>
+
+<body>
+    <header class="header fixed-top">
+
+        <div class="branding docs-branding">
+            <div class="container-fluid position-relative py-2">
+                <div class="docs-logo-wrapper">
+                    <div class="site-logo"><a class="navbar-brand" href="index.html"><span
+                                class="logo-text">Graphics.<span class="text-alt">js</span></span></a></div>
+                </div>
+                <div class="docs-top-utilities d-flex justify-content-end align-items-center">
+                    <!--//social-list-->
+                    <button   onclick="update()" class="btn btn-primary d-none d-lg-flex">⚙ Run</button>
+                </div>
+                <!--//docs-top-utilities-->
+            </div>
+            <!--//container-->
+        </div>
+        <!--//branding-->
+    </header>
+    <!--//header-->
+
+
+    <div class="container">
+        <div class="split left">
+            <div id="editor">
+            </div>
+        </div>
+
+        <canvas id='sampleGraphics' class="split right" frameBorder="0"></canvas>
+        <span id="script">
+
+        </span>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.9.6/ace.js"
+            integrity="sha512-czfWedq9cnMibaqVP2Sw5Aw1PTTabHxMuTOkYkL15cbCYiatPIbxdV0zwhfBZKNODg0zFqmbz8f7rKmd6tfR/Q=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script type="text/javascript">
+            function update1() {
+                var newdiv = document.createElement('div');
+                newdiv.innerHTML = `<script>${editor.getValue()}`;
+                document.getElementById('script').appendChild(newdiv);
+                delay(50);
+                main();
+            }
+
+            function update() {
+
+                // document.getElementById('script').innerHTML = parts.html;
+                eval(editor.getValue());
+            }
+
+            function separateScriptElementsFromHtml(fullHtmlString) {
+                var inner = [], outer = [], m;
+                while (m = /<script>([^<]*)<\/script>/gi.exec(fullHtmlString)) {
+                    outer.push(fullHtmlString.substr(0, m.index));
+                    inner.push(m[1]);
+                    fullHtmlString = fullHtmlString.substr(m.index + m[0].length);
+                }
+                outer.push(fullHtmlString);
+                return {
+                    html: outer.join('\r\n'),
+                    js: inner.join('\r\n')
+                };
+            }
+        </script>
+        <script>
+            window.editor = ace.edit("editor");
+            editor.setTheme("ace/theme/monokai");
+
+            editor.getSession().setMode("ace/mode/typescript");
+            editor.setValue(`//bsa algorithm
+var xc, x;
+var yc, y;
+
+async function main() {
+    // to implement oval drawing algorithm
+    initgraph();
+
+    var rx, ry;
+    var p1, p2;
+
+    xc = parseInt(prompt("Enter the center point x-coordinate:"))
+    yc = parseInt(prompt("Enter the center point y-coordinate:"))
+    var rx = parseInt(prompt("Enter the center point Rx:"))
+    var ry = parseInt(prompt("Enter the center point Ry:"))
+
+    x = 0
+    y = ry
+
+    await disp()
+
+    p1 = ((ry * ry) - (rx * rx * ry) + (rx * rx)) / 4
+    while ((2.0 * ry * ry * x) <= (2.0 * rx * rx * y)) {
+        x++;
+        if (p1 <= 0) {
+            p1 = p1 + (2.0 * ry * ry * x) + (ry * ry)
+        }
+        else {
+            y--;
+            p1 = p1 + (2.0 * ry * ry * x) - (2.0 * rx * rx * y) + (ry * ry)
+        }
+        await disp();
+        x = -x
+        await disp();
+        x = -x;
+    }
+
+    x = rx;
+    y = 0;
+    await disp();
+    p2 = ((rx * rx) - 2.0 * (ry * ry * rx) + (ry * ry)) / 4
+    while ((2.0 * ry * ry * x) > (2.0 * rx * rx * y)) {
+        y++;
+        if (p2 > 0) {
+            p2 = p2 - (2.0 * rx * rx * y) + (rx * rx)
+        }
+        else {
+            x--;
+            p2 = p2 + (2.0 * ry * ry * x) - (2.0 * rx * rx * y) + (rx * rx)
+        }
+        await disp();
+        y = -y
+        await disp();
+        y = -y;
+    }
+    closegraph();
+}
+async function disp() {
+    await delay(50)
+    putpixel(xc + x, yc + y, "#ffffff")
+    putpixel(xc - x, yc + y, "#ffffff")
+    putpixel(xc + x, yc - y, "#ffffff")
+    putpixel(xc - x, yc - y, "#ffffff")
+}
+main()
+    
+    `, 1);
+
+            editor.setShowPrintMargin(true);
+            editor.setOptions({
+                fontSize: "16pt"
+            });
+        </script>
+    </div>
+
+
+    <!-- Javascript -->
+    <script src="assets/plugins/popper.min.js"></script>
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Page Specific JS -->
+    <script src="assets/plugins/smoothscroll.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+    <script src="assets/js/highlight-custom.js"></script>
+    <script src="assets/plugins/simplelightbox/simple-lightbox.min.js"></script>
+    <script src="assets/plugins/gumshoe/gumshoe.polyfills.min.js"></script>
+    <script src="assets/js/docs.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Computer Graphics complete Tutorial</title>
+
+	<!-- Meta -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Computer Graphics Complete Tutorial">
+	<meta name="author" content="Sulav Parajuli">
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<!-- Google Font -->
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+
+	<!-- FontAwesome JS-->
+	<script defer src="assets/fontawesome/js/all.min.js"></script>
+
+	<!-- Plugins CSS -->
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.2/styles/atom-one-dark.min.css">
+	<link rel="stylesheet" href="assets/plugins/simplelightbox/simple-lightbox.min.css">
+
+	<!-- Theme CSS -->
+	<link id="theme-style" rel="stylesheet" href="assets/css/theme.css">
+
+</head>
+
+<body class="docs-page">
+	<header class="header fixed-top">
+
+		<div class="branding docs-branding">
+			<div class="container-fluid position-relative py-2">
+				<div class="docs-logo-wrapper">
+					<div class="site-logo"><a class="navbar-brand" href="index.html"><span
+								class="logo-text">Graphics.<span class="text-alt">js</span></span></a></div>
+				</div>
+				<div class="docs-top-utilities d-flex justify-content-end align-items-center">
+
+					<ul class="social-list list-inline mx-md-3 mx-lg-5 mb-0 d-none d-lg-flex">
+						<li class="list-inline-item"><a href="#"><i class="fab fa-github fa-fw"></i></a></li>
+						<li class="list-inline-item"><a href="#"><i class="fab fa-facebook fa-fw"></i></a></li>
+						<li class="list-inline-item"><a href="#"><i class="fab fa-google fa-fw"></i></a></li>
+					</ul>
+					<!--//social-list-->
+					<a href="/showcase.html" class="btn btn-primary d-none d-lg-flex">Open Playground</a>
+				</div>
+				<!--//docs-top-utilities-->
+			</div>
+			<!--//container-->
+		</div>
+		<!--//branding-->
+	</header>
+
+	<div class="docs-wrapper">
+		<div id="docs-sidebar" class="docs-sidebar">
+
+			<nav id="docs-nav" class="docs-nav navbar">
+				<ul class="section-items list-unstyled nav flex-column pb-3">
+					<li class="nav-item section-title"><a class="nav-link scrollto active" href="#section-1"><span
+								class="theme-icon-holder me-2"><i class="fas fa-map-signs"></i></span>Introduction</a>
+					</li>
+					<li class="nav-item"><a class="nav-link scrollto" href="#item-1-1">Basic Syntax</a>
+					<li class="nav-item"><a class="nav-link scrollto" href="#item-1-2">The arc() function</a>
+					<li class="nav-item"><a class="nav-link scrollto" href="#item-1-3">The circle() function</a>
+					<li class="nav-item"><a class="nav-link scrollto" href="#item-1-4">The cleardevice() function</a>
+					<li class="nav-item"><a class="nav-link scrollto" href="#item-1-5">The ellipse() function</a>
+					<li class="nav-item"><a class="nav-link scrollto" href="#item-1-6">The putpixel() function</a>
+					<li class="nav-item"><a class="nav-link scrollto" href="#item-1-7">The outtextxy() function</a>
+					</li>
+					<br>
+					<li class="nav-item section-title"><a class="nav-link scrollto active" href="#section-2"><span
+								class="theme-icon-holder me-2"><i class="fas fa-map-signs"></i></span>Helper
+							Functions</a>
+					</li>
+					<li class="nav-item"><a class="nav-link scrollto" href="#item-2-1">The delay() function</a>
+					<li class="nav-item"><a class="nav-link scrollto" href="#item-2-2">The abs() function</a>
+					</li>
+				</ul>
+
+			</nav>
+			<!--//docs-nav-->
+		</div>
+		<div class="docs-content">
+			<div class="container">
+				<article class="docs-article" id="section-1">
+					<header class="docs-header">
+						<h1 class="docs-heading">Introduction <span class="docs-time">Last updated: Today</span>
+						</h1>
+						<section class="docs-intro">
+							<p> We often encounter a lot of problems while setting up graphics.h header files with C and
+								we do not want
+								to do a lot of stuffs just to learn simple graphics algorithm. Graphics.h is an online
+								alternative to
+								graphics.h that is totally recreated using HTML5 canvas and work with bare minimum
+								knowledge of js.
+							</p>
+						</section>
+						<!--//docs-intro-->
+
+					</header>
+					<section class="docs-section" id="item-1-1">
+						<h2 class="section-heading">Basic Syntax</h2>
+						Like each C program, Graphics.js program also starts with <code>main</code> function. The
+						<code>main</code> function, unlike C, must be assigned <code>async</code>. The bare minimum code
+						for a sample line drawing Graphics.js program is as below:
+
+						<br><br>
+						<pre><code class="language-js">// async main function
+async function main() {
+	initgraph();
+	line(100,200,600,800);
+	closegraph();
+}
+main() // at the end of program the main function must be called so that it gets executed.
+</code></pre>
+
+					</section>
+
+
+
+					<section class="docs-section" id="item-1-2">
+						<h2 class="section-heading">The arc() function</h2>
+						Declaration: void arc(int x, int y, int stangle, int endangle, int radius);<br>
+
+						"arc" function is used to draw an arc with center (x, y) and stangle specifies starting angle,
+						endangle specifies the end angle and last parameter specifies the radius of the arc. arc
+						function can also be used to draw a circle but for that starting angle and end angle should be 0
+						and 360 respectively.
+						<br><br>
+						<pre><code class="language-js">arc(100, 75, 50, 0, 2 * Math.PI);</code></pre>
+					</section>
+
+
+					<section class="docs-section" id="item-1-3">
+						<h2 class="section-heading">The circle() function</h2>
+						<pre><code class="language-js">circle(x, y, radius);</code></pre>
+					</section>
+
+
+
+					<section class="docs-section" id="item-1-4">
+						<h2 class="section-heading">The cleardevice() function</h2>
+						Used to clear the graphics canvas.<br><br>
+						<pre><code class="language-js">cleardevice();</code></pre>
+					</section>
+
+
+
+					<section class="docs-section" id="item-1-5">
+						<h2 class="section-heading">The ellipse() function</h2>
+						Used to draw ellipse.<br><br>
+						<pre><code class="language-js">ellipse(x,y,sangle,endangle,xradius,yradius);</code></pre>
+					</section>
+
+
+
+
+
+
+					<section class="docs-section" id="item-1-6">
+						<h2 class="section-heading">The putpixel() function</h2>
+						Like C, We have to provide the x and y coordinate position following with a color to putpixel().
+						<br><br>
+						<pre><code class="language-js">putpixel(xCoordinate,yCoordinate,"#ff0000");</code></pre>
+					</section>
+
+
+
+					<section class="docs-section" id="item-1-7">
+						<h2 class="section-heading">The outtextxy(x,y,string) function</h2>
+						Used to output a string at a given x,y coordinate.
+						<br><br>
+						<pre><code class="language-js">outtextxy(xCoordinate,yCoordinate,"Hello World!");</code></pre>
+					</section>
+
+
+				</article>
+
+
+				<article class="docs-article" id="section-2">
+					<header class="docs-header">
+						<h1 class="docs-heading">Helper Function <span class="docs-time">Last updated: Today</span>
+						</h1>
+						<section class="docs-intro">
+							<p> Helper functions are not a part of Graphics.js pure graphic functions rather the
+								functions that helps in better visualizations of the graphics.
+								Currently supported functions are <code>delay()</code> and <code>abs()</code> functions
+							</p>
+						</section>
+						<!--//docs-intro-->
+
+					</header>
+					<section class="docs-section" id="item-2-1">
+						<h2 class="section-heading">The delay() function</h2>
+						The delay() function is used to suspend execution of a program for a particular time.
+
+						<br><br>
+						<pre><code class="language-js">// delay function example
+async function main() {
+	outtextxy(200, 20, "Printed before 50 milliseconds.");
+	await delay(50); 
+	outtextxy(200, 20, "Printed after 50 milliseconds.");
+} 
+</code></pre>
+
+					</section>
+					<section class="docs-section" id="item-2-2">
+						<h2 class="section-heading">The abs() function</h2>
+						The abs() function is used to get the absolute value of a number. abs() function returns the
+						absolute value of a number. That is, it returns x if x is positive or zero, and the negation of
+						x if x is negative.
+
+						<br><br>
+						<pre><code class="language-js">// abs function example
+var x1 = abs(-5);
+outtextxy(200, 20, x1); // 5
+</code></pre>
+
+					</section>
+
+
+
+				</article>
+
+
+				<footer class="footer">
+					<div class="container text-center py-5">
+						<!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
+						<small class="copyright">Designed with <span class="sr-only">love</span><i class="fas fa-heart"
+								style="color: #fb866a;"></i> by <a class="theme-link"
+								href="http://themes.3rdwavemedia.com" target="_blank">Xiaoying Riley</a> for
+							developers</small>
+						<ul class="social-list list-unstyled pt-4 mb-0">
+							<li class="list-inline-item"><a href="#"><i class="fab fa-github fa-fw"></i></a></li>
+							<li class="list-inline-item"><a href="#"><i class="fab fa-twitter fa-fw"></i></a></li>
+							<li class="list-inline-item"><a href="#"><i class="fab fa-slack fa-fw"></i></a></li>
+							<li class="list-inline-item"><a href="#"><i class="fab fa-product-hunt fa-fw"></i></a></li>
+							<li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f fa-fw"></i></a></li>
+							<li class="list-inline-item"><a href="#"><i class="fab fa-instagram fa-fw"></i></a></li>
+						</ul>
+						<!--//social-list-->
+					</div>
+				</footer>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- Javascript -->
+	<script src="assets/plugins/popper.min.js"></script>
+	<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+
+	<!-- Page Specific JS -->
+	<script src="assets/plugins/smoothscroll.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+	<script src="assets/js/highlight-custom.js"></script>
+	<script src="assets/plugins/simplelightbox/simple-lightbox.min.js"></script>
+	<script src="assets/plugins/gumshoe/gumshoe.polyfills.min.js"></script>
+	<script src="assets/js/docs.js"></script>
+
+</body>
+
+</html>
